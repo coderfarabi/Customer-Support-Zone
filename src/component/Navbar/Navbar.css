@@ -1,0 +1,4 @@
+@import "tailwindcss";
+.navbarMenu li {
+  @apply font-medium text-gray-600 hover:text-gray-900 cursor-pointer;
+}
