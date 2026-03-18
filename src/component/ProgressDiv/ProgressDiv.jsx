@@ -7,15 +7,15 @@ const ProgressDiv = () => {
         <img src={vectorImg} className="absolute -left-4 -bottom-0 h-36 pointer-events-none" />
         <img src={vectorImg} className="absolute -right-4 -bottom-0 h-36 scale-x-[-1] pointer-events-none" />
         <div className="flex flex-col items-center justify-center">
-          <spna>In-Progress</spna>
-          <spna className="text-3xl font-bold">0</spna>
+          <span>In-Progress</span>
+          <span className="text-3xl font-bold">0</span>
         </div>
       </div>
       <div className="relative rounded-xl p-10 bg-linear-to-br from-[#54CF68] to-[#00827A] flex flex-col items-center justify-center">
         <img src={vectorImg} className="absolute -left-4 -bottom-0 h-36 pointer-events-none" />
         <img src={vectorImg} className="absolute -right-4 -bottom-0 h-36 scale-x-[-1] pointer-events-none" />
-        <spna>Resolved</spna>
-        <spna className="text-3xl font-bold">0</spna>
+        <span>Resolved</span>
+        <span className="text-3xl font-bold">0</span>
       </div>
     </div>
   );

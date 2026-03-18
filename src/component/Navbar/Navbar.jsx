@@ -54,11 +54,10 @@ const Navbar = () => {
           </div>
           <div className="navbar-end">
             <a
-              className="btn bg-linear-to-br from-[#632EE3] to-[#9F62F2] text-white border border-black 
-             hover:shadow-2xl hover:scale-105 active:scale-95 
-             transition-all duration-300 ease-in-out"
+              className="btn my-btn-hover bg-linear-to-br from-[#632EE3] to-[#9F62F2] text-white border border-black 
+             "
             >
-              <span class="material-symbols-outlined">add</span>
+              <span className="material-symbols-outlined">add</span>
               <span>New Ticket</span>
             </a>
           </div>

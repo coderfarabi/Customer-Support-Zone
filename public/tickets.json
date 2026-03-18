@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1001,
+    "title": "Database Connection Timeout",
+    "description": "The production server is unable to connect to the SQL cluster.",
+    "customer": "TechCorp",
+    "priority": "Critical",
+    "status": "Open",
+    "createdAt": "2026-03-10T10:15:30Z"
+  },
+  {
+    "id": 1002,
+    "title": "Broken Password Reset",
+    "description": "Users report that the password reset link leads to a 404 error.",
+    "customer": "John Doe",
+    "priority": "High",
+    "status": "In Progress",
+    "createdAt": "2026-03-11T14:45:00Z"
+  },
+  {
+    "id": 1003,
+    "title": "Logo Alignment Issue",
+    "description": "The company logo overlaps the navigation bar on mobile devices.",
+    "customer": "Design Hub",
+    "priority": "Low",
+    "status": "Open",
+    "createdAt": "2026-03-12T09:20:15Z"
+  },
+  {
+    "id": 1004,
+    "title": "API Latency",
+    "description": "The /users endpoint is taking more than 5 seconds to load.",
+    "customer": "Internal",
+    "priority": "Medium",
+    "status": "In Progress",
+    "createdAt": "2026-03-13T11:05:00Z"
+  },
+  {
+    "id": 1005,
+    "title": "Payment Gateway Failure",
+    "description": "Transactions are failing during the checkout process.",
+    "customer": "E-Shop Pro",
+    "priority": "High",
+    "status": "Resolved",
+    "createdAt": "2026-03-14T16:50:22Z"
+  },
+  {
+    "id": 1006,
+    "title": "README Documentation Update",
+    "description": "Need to update the deployment steps in the repository.",
+    "customer": "Dev Team",
+    "priority": "Low",
+    "status": "Closed",
+    "createdAt": "2026-03-15T08:12:00Z"
+  },
+  {
+    "id": 1007,
+    "title": "Memory Leak Found",
+    "description": "The background worker process is consuming excessive RAM.",
+    "customer": "System Admin",
+    "priority": "Critical",
+    "status": "Open",
+    "createdAt": "2026-03-15T22:30:45Z"
+  },
+  {
+    "id": 1008,
+    "title": "Homepage Typo",
+    "description": "Found a spelling error in the footer section.",
+    "customer": "Marketing",
+    "priority": "Low",
+    "status": "Open",
+    "createdAt": "2026-03-16T13:05:00Z"
+  },
+  {
+    "id": 1009,
+    "title": "CSV Export Error",
+    "description": "Exporting the user list results in an empty file.",
+    "customer": "HR Dept",
+    "priority": "Medium",
+    "status": "In Progress",
+    "createdAt": "2026-03-17T09:40:00Z"
+  },
+  {
+    "id": 1010,
+    "title": "SSL Certificate Expiry",
+    "description": "The staging environment certificate expires in 48 hours.",
+    "customer": "Security",
+    "priority": "High",
+    "status": "Open",
+    "createdAt": "2026-03-17T11:20:00Z"
+  },
+  {
+    "id": 1011,
+    "title": "App Crash on Android 12",
+    "description": "The application crashes immediately upon startup.",
+    "customer": "Mobile Users",
+    "priority": "High",
+    "status": "In Progress",
+    "createdAt": "2026-03-18T07:15:30Z"
+  },
+  {
+    "id": 1012,
+    "title": "Dark Mode Contrast",
+    "description": "Gray text is not visible against the black background.",
+    "customer": "Jane Smith",
+    "priority": "Medium",
+    "status": "Open",
+    "createdAt": "2026-03-18T15:55:00Z"
+  },
+  {
+    "id": 1013,
+    "title": "Feature: Add 2FA",
+    "description": "Requesting multi-factor authentication for user accounts.",
+    "customer": "Bank Client",
+    "priority": "Medium",
+    "status": "Pending",
+    "createdAt": "2026-03-19T08:10:00Z"
+  },
+  {
+    "id": 1014,
+    "title": "Broken Image Links",
+    "description": "User avatars are not rendering in the dashboard.",
+    "customer": "Social App",
+    "priority": "Low",
+    "status": "Resolved",
+    "createdAt": "2026-03-19T09:30:45Z"
+  },
+  {
+    "id": 1015,
+    "title": "Search indexing Lag",
+    "description": "New content takes 30 minutes to appear in search results.",
+    "customer": "Global Co",
+    "priority": "Medium",
+    "status": "Open",
+    "createdAt": "2026-03-19T10:05:12Z"
+  }
+]

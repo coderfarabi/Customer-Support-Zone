@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
 .sideMargin {
-  @apply max-w-[1200px] mx-auto;
+  @apply max-w-[1200px] mx-auto px-5;
+}
+
+.my-btn-hover {
+  @apply shadow-lg hover:shadow-xl active:scale-99 transition-all duration-300 ease-in-out;
 }
