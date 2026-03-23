@@ -1,25 +1,29 @@
-import React, { use, useState } from "react";
+import React, { use, useState, useRef, useEffect } from "react";
 import Ticket from "./Ticket";
 
-const CustomerTickets = ({ ticketsPromise,getUpdatedData}) => {
+const CustomerTickets = ({ ticketsPromise, getUpdatedData, updatedData }) => {
   const initialData = use(ticketsPromise);
   const [getTicketsData, setGetTicketsData] = useState(initialData);
-  const getCheckedTickets = (id) => {
-    const data =  getTicketsData.map((tic) => {
-        if (tic.id === id) return { ...tic, status: "In Progress" };
-        return tic;
-      });
-    setGetTicketsData(data);
+  useEffect(() => {
     getUpdatedData(getTicketsData);
+  }, [getTicketsData]);
+
+  const getCheckedTickets = (id) => {
+    const data = updatedData.map((tic) => {
+      if (tic.id === id && tic.status === "Open")
+        return { ...tic, status: "In Progress" };
+      return tic;
+    });
+    getUpdatedData(data);
   };
   return (
     <>
       <div className="col-span-3">
-        <p className="text-2xl font-semibold text-gray-600 pb-2">
+        <p className="text-2xl font-semibold text-gray-600 pb-5">
           Customer Tickets
         </p>
         <div className="grid grid-cols-2 gap-2">
-          {getTicketsData.map((tic) => {
+          {updatedData.map((tic) => {
             return (
               <Ticket
                 tic={tic}

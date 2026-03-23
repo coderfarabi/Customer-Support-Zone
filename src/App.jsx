@@ -16,11 +16,13 @@ const fetchTickets = async () => {
 };
 const ticketsPromise = fetchTickets();
 function App() {
-  const [ticketsData, setTicketsData] = useState([]);
-  const [updatedData, setUpdatedData] = useState([])
-  const getUpdatedData = (tics) => {
-    setUpdatedData(tics);
+  const [updatedData, setUpdatedData] = useState([])  
+  const [countIP, setCountIP] = useState(0);
+  const [countR, setCountR] = useState(0);
+  const setCounts = (str) => {
+console.log(str);
   }
+  const getUpdatedData = (tics) => setUpdatedData(tics);
   return (
     <div className="space-y-10  ">
       <Navbar></Navbar>
@@ -28,9 +30,9 @@ function App() {
         <ProgressDiv></ProgressDiv>
         <div className="grid grid-cols-4 pt-10 gap-5">
           <Suspense fallback={<span className="loading loading-spinner loading-xl"></span>}>
-            <CustomerTickets ticketsPromise={ticketsPromise} getUpdatedData={getUpdatedData}></CustomerTickets>
+            <CustomerTickets ticketsPromise={ticketsPromise} updatedData={updatedData} getUpdatedData={getUpdatedData}></CustomerTickets>
           </Suspense>
-          <TicketStatus updatedData={updatedData} setUpdatedData={setUpdatedData}></TicketStatus>
+          <TicketStatus updatedData={updatedData} getUpdatedData={getUpdatedData} setCounts={setCounts}></TicketStatus>
         </div>
       </div>
     </div>

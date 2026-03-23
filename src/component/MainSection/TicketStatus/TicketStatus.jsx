@@ -1,34 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import InprogressTask from "./InprogressTask";
 import ResolvedTask from "./ResolvedTask";
-const TicketStatus = ({ updatedData, setUpdatedData }) => {
-  const [completedTicket, setCompletedTicket] = useState([]);
-  const toggleCompleteBtn = (ticket) => {
-    const data = updatedData.filter((tic) => tic.id !== ticket.id);
-    setCompletedTicket([...completedTicket, ticket]);
-    setUpdatedData(data);
-    console.log(updatedData);
+const TicketStatus = ({ updatedData, getUpdatedData, setCounts }) => {
+  const [completedTickets, setCompletedTickets] = useState(updatedData);
+  useEffect(() => getUpdatedData(completedTickets), [completedTickets]);
+
+  const toggleCompleteBtn = (id) => {
+    const data = updatedData.map((tic) => {
+      if (tic.id === id && tic.status.toLowerCase() === "in progress")
+        return { ...tic, status: "Resolved" };
+      return tic;
+    });
+    setCompletedTickets(data);
   };
   return (
     <div className="col-span-1">
-      <p className="text-2xl font-semibold text-gray-600 pb-2">Task Status</p>
+      <p className="text-2xl font-semibold text-gray-600 pb-5">Task Status</p>
+      <div className="space-y-3">
+        {updatedData.map((tic) => {
+          if (tic.status?.toLowerCase() === "in progress") {
+            console.log("hello")
+            setCounts("in progress");
+            return (
+              <InprogressTask
+                key={tic.id}
+                tic={tic}
+                toggleCompleteBtn={toggleCompleteBtn}
+                getUpdatedData={getUpdatedData}
+              ></InprogressTask>
+            );
+          }
+        })}
+      </div>
 
-      {updatedData.map((tic) => {
-        if (tic.status.toLowerCase() === "in progress") {
-          return (
-            <InprogressTask
-            key={tic.id}
-              tic={tic}
-              toggleCompleteBtn={toggleCompleteBtn}
-            ></InprogressTask>
-          );
-        }
-      })}
-      <p className="text-2xl font-semibold text-gray-600 pb-2">Resolved Task</p>
-
-      {completedTicket.map((tic) => {
-        return <ResolvedTask key={tic.id} tic={tic}></ResolvedTask>;
-      })}
+      <p className="text-2xl font-semibold text-gray-600 pt-10 pb-5">
+        Resolved Task
+      </p>
+      <div className="space-y-3">
+        {updatedData.map((tic) => {
+          if (tic.status?.toLowerCase() === "resolved") {
+            setCounts("resolved");
+            return <ResolvedTask key={tic.id} tic={tic}></ResolvedTask>;
+          }
+        })}
+      </div>
     </div>
   );
 };
