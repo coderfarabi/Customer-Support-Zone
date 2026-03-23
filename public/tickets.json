@@ -50,7 +50,7 @@
     "description": "Need to update the deployment steps in the repository.",
     "customer": "Dev Team",
     "priority": "Low",
-    "status": "Closed",
+    "status": "Resolved",
     "createdAt": "2026-03-15T08:12:00Z"
   },
   {
@@ -113,7 +113,7 @@
     "description": "Requesting multi-factor authentication for user accounts.",
     "customer": "Bank Client",
     "priority": "Medium",
-    "status": "Pending",
+    "status": "In Progress",
     "createdAt": "2026-03-19T08:10:00Z"
   },
   {

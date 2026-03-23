@@ -2,33 +2,38 @@ import "./App.css";
 import Navbar from "./component/Navbar/Navbar";
 import ProgressDiv from "./component/ProgressDiv/ProgressDiv";
 import CustomerTickets from "./component/MainSection/CustomerTickets/CustomerTickets";
-import { Suspense } from "react";
+import { Suspense, useState, use, useEffect } from "react";
+import TicketStatus from "./component/MainSection/TicketStatus/TicketStatus";
 const fetchTickets = async () => {
-  const res = await fetch("/tickets.json");
-  return res.json();
+  try {
+    const res = await fetch("/tickets.json");
+    if (!res.ok) throw new Error("Failed to fetch");
+    return await res.json();
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
 };
-
+const ticketsPromise = fetchTickets();
 function App() {
-  const ticketsPromise = fetchTickets();
+  const [ticketsData, setTicketsData] = useState([]);
+  const [updatedData, setUpdatedData] = useState([])
+  const getUpdatedData = (tics) => {
+    setUpdatedData(tics);
+  }
   return (
-    <>
-      <div className="space-y-10  ">
-        <Navbar></Navbar>
-        <div className="sideMargin">
-          <ProgressDiv></ProgressDiv>
-          <p className="text-2xl font-semibold text-gray-600 pt-10 pb-2">
-            Customer Tickets
-          </p>
-          <Suspense
-            fallback={
-              <span className="loading loading-spinner loading-xl"></span>
-            }
-          >
-            <CustomerTickets ticketsPromise={ticketsPromise}></CustomerTickets>
+    <div className="space-y-10  ">
+      <Navbar></Navbar>
+      <div className="sideMargin">
+        <ProgressDiv></ProgressDiv>
+        <div className="grid grid-cols-4 pt-10 gap-5">
+          <Suspense fallback={<span className="loading loading-spinner loading-xl"></span>}>
+            <CustomerTickets ticketsPromise={ticketsPromise} getUpdatedData={getUpdatedData}></CustomerTickets>
           </Suspense>
+          <TicketStatus updatedData={updatedData} setUpdatedData={setUpdatedData}></TicketStatus>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
